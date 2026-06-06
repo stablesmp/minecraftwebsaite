@@ -53,7 +53,7 @@ export const Home = ({ onNavigate }) => {
         <div className="text-center max-w-4xl mx-auto reveal">
           <${Logo} size="lg" className="mb-6 justify-center" />
           <p className="text-xl md:text-2xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-            Fight, steal, build, and survive. A raw PvP world for 20–35 players who actually get to know each other.
+            Fight, steal, build, and survive. A raw PvP world for 30–50 players who actually get to know each other.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
             <button
@@ -99,12 +99,21 @@ export const Home = ({ onNavigate }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             ${FEATURES.map((feature, idx) => {
               const Icon = Lucide[feature.icon];
+              const isLocked = feature.title === 'Create Mod Server';
               return html`
                 <div
                   key=${idx}
-                  className="reveal bg-white p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 shine-effect group"
+                  className="reveal relative bg-white p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 shine-effect group overflow-hidden"
                   style=${{ transitionDelay: idx * 100 + 'ms' }}
                 >
+                  ${isLocked && html`
+                    <div className="absolute inset-0 z-10 backdrop-blur-sm bg-white/60 rounded-2xl flex flex-col items-center justify-center gap-3">
+                      <div className="p-4 bg-gray-100 rounded-2xl">
+                        <${Lucide.Lock} className="w-8 h-8 text-gray-500" />
+                      </div>
+                      <p className="text-xs font-black text-gray-500 uppercase tracking-widest">Coming Soon</p>
+                    </div>
+                  `}
                   <div className="mb-6 p-4 bg-blue-50 rounded-2xl w-fit group-hover:bg-blue-100 transition-colors duration-500">
                     <div className="text-blue-600 transition-transform duration-500 group-hover:rotate-6">
                       <${Icon} className="w-8 h-8" />
@@ -171,7 +180,7 @@ export const Home = ({ onNavigate }) => {
         <div className="max-w-4xl mx-auto bg-blue-600 p-16 rounded-[2.5rem] text-center reveal shadow-xl shadow-blue-600/20">
           <h2 className="text-4xl font-black mb-4 text-white uppercase tracking-tight">Start Your Adventure</h2>
           <p className="text-xl text-blue-100 mb-10 max-w-xl mx-auto font-light leading-relaxed">
-            Think you've got what it takes? Apply for a spot among 20–35 players.
+            Think you've got what it takes? Apply for a spot among 30–50 players.
           </p>
           <button
             onClick=${() => onNavigate('application')}
