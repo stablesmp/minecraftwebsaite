@@ -2,7 +2,7 @@
 export const FEATURES = [
   {
     title: 'Tight-Knit Community',
-    description: 'Only 20–35 players. No massive anonymous server — everyone knows each other by name.',
+    description: 'Only 30–50 players. No massive anonymous server — everyone knows each other by name.',
     icon: 'Users',
   },
   {
@@ -12,7 +12,7 @@ export const FEATURES = [
   },
   {
     title: 'No Griefing',
-    description: 'The one hard rule — builds are sacred. You can steal, but you can never destroy someone\'s work.',
+    description: 'Builds are sacred. Minimal griefing is allowed — you can steal and break a wall to loot, but total destruction of someone\'s base is a permanent ban.',
     icon: 'Shield',
   },
   {
